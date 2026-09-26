@@ -111,14 +111,30 @@
 </script>
     <script>
     function createPost() {
-        const text = document.querySelector('.post-section textarea').value.trim();
+        const textarea = document.querySelector('.post-section textarea');
+        const text = textarea.value.trim();
 
         if (text === '') {
             alert('Please write something before posting.');
             return;
         }
 
-        alert('Your post has been published!');
+        const post = document.createElement('div');
+
+        post.style.marginTop = '20px';
+        post.style.padding = '20px';
+        post.style.background = '#fff7fa';
+        post.style.borderRadius = '15px';
+        post.style.textAlign = 'left';
+
+        post.innerHTML = `
+            <strong>LoveLink Member</strong>
+            <p style="margin-top:10px;">${text}</p>
+        `;
+
+        document.querySelector('.post-section').appendChild(post);
+
+        textarea.value = '';
     }
 </script>
 
