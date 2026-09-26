@@ -1,9 +1,4 @@
-body {
-    background: red;
-}
-
-
-
+body
 * {
     margin: 0;
     padding: 0;
@@ -466,4 +461,42 @@ footer {
 .payment-note {
     margin-top: 20px;
     font-size: 13px;
+}
+.profile-picture {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.post-section {
+    margin-top: 30px;
+    padding: 25px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.post-section h2 {
+    margin-bottom: 15px;
+}
+
+.post-section textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    resize: vertical;
+    font-family: inherit;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.post-section input[type="file"] {
+    display: block;
+    margin-bottom: 15px;
 }
