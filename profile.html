@@ -1,143 +1,197 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LoveLink - My Profile</title>
+```
+<title>LoveLink - My Profile</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+```
+
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">
-            ❤️ LoveLink
-        </div>
+```
+<!-- HEADER -->
+<header>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="profile.html">My Profile</a>
-        </nav>
-    </header>
+    <div class="logo">
+        ❤️ LoveLink
+    </div>
 
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="profile.html">My Profile</a>
+    </nav>
 
-    <main>
-
-        <section class="profile-page">
-
-            <h1>Welcome to LoveLink ❤️</h1>
-
-            <p>
-                Your profile is ready. This is your personal space on LoveLink.
-            </p>
-
-            <div class="profile-card">
-
-                <!-- Profile Picture -->
-                <div class="profile-picture">
-                    <img
-                        src="https://via.placeholder.com/150"
-                        alt="Profile picture"
-                    >
-                </div>
-
-                <h2>My Profile</h2>
-
-                <p><strong>Name:</strong> LoveLink Member</p>
-
-                <p><strong>Age:</strong> 18+</p>
-
-                <p><strong>Looking for:</strong> Meaningful connection</p>
-
-                <button class="primary-btn" onclick="createPost()">
-    Post
-</button>
+</header>
 
 
-                <!-- Create Post -->
-                <div class="post-section">
+<!-- MAIN -->
+<main>
 
-                    <h2>Create a Post</h2>
+    <section class="profile-page">
 
-                    <textarea
-                        placeholder="Share something with your LoveLink community..."
-                        rows="4"
-                    ></textarea>
+        <h1>Welcome to LoveLink ❤️</h1>
 
-                   <input
-    type="file"
-    id="profileImageInput"
-    accept="image/*"
->
+        <p>
+            Your profile is ready. This is your personal space on LoveLink.
+        </p>
 
-                    <button class="primary-btn">
-                        Post
-                    </button>
 
-                </div>
+        <!-- PROFILE CARD -->
+        <div class="profile-card">
+
+            <!-- PROFILE PICTURE -->
+            <div class="profile-picture">
+
+                <img
+                    id="profileImage"
+                    src="https://via.placeholder.com/150"
+                    alt="Profile picture"
+                >
+
+                <br><br>
+
+                <input
+                    type="file"
+                    id="profileImageInput"
+                    accept="image/*"
+                >
 
             </div>
 
-        </section>
 
-    </main>
+            <h2>My Profile</h2>
+
+            <p>
+                <strong>Name:</strong>
+                LoveLink Member
+            </p>
+
+            <p>
+                <strong>Age:</strong>
+                18+
+            </p>
+
+            <p>
+                <strong>Looking for:</strong>
+                Meaningful connection
+            </p>
 
 
-    <footer>
+            <!-- CREATE POST -->
+            <div class="post-section">
 
-        <p>
-            © 2026 LoveLink. All rights reserved.
-        </p>
+                <h2>Create a Post</h2>
 
-        <p>
-            18+ only • Privacy • Terms • Safety
-        </p>
+                <textarea
+                    id="postText"
+                    placeholder="Share something with your LoveLink community..."
+                    rows="4"
+                ></textarea>
 
-    </footer>
-    <script>
-    const imageInput = document.getElementById('profileImageInput');
-    const profileImage = document.querySelector('.profile-picture img');
+                <button
+                    class="primary-btn"
+                    onclick="createPost()"
+                >
+                    Post
+                </button>
 
-    imageInput.addEventListener('change', function () {
+            </div>
+
+
+            <!-- POSTS APPEAR HERE -->
+            <div id="posts"></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © 2026 LoveLink. All rights reserved.
+    </p>
+
+    <p>
+        18+ only • Privacy • Terms • Safety
+    </p>
+
+</footer>
+
+
+<!-- PROFILE PICTURE SCRIPT -->
+<script>
+
+    const imageInput = document.getElementById("profileImageInput");
+    const profileImage = document.getElementById("profileImage");
+
+    imageInput.addEventListener("change", function () {
+
         const file = this.files[0];
 
         if (file) {
+
             const imageURL = URL.createObjectURL(file);
+
             profileImage.src = imageURL;
         }
+
     });
+
 </script>
-    <script>
+
+
+<!-- POST SCRIPT -->
+<script>
+
     function createPost() {
-        const textarea = document.querySelector('.post-section textarea');
+
+        const textarea = document.getElementById("postText");
+        const posts = document.getElementById("posts");
+
         const text = textarea.value.trim();
 
-        if (text === '') {
-            alert('Please write something before posting.');
+        if (text === "") {
+
+            alert("Please write something before posting.");
+
             return;
         }
 
-        const post = document.createElement('div');
 
-        post.style.marginTop = '20px';
-        post.style.padding = '20px';
-        post.style.background = '#fff7fa';
-        post.style.borderRadius = '15px';
-        post.style.textAlign = 'left';
+        const post = document.createElement("div");
+
+        post.style.marginTop = "20px";
+        post.style.padding = "20px";
+        post.style.background = "#fff7fa";
+        post.style.borderRadius = "15px";
+        post.style.textAlign = "left";
 
         post.innerHTML = `
             <strong>LoveLink Member</strong>
             <p style="margin-top:10px;">${text}</p>
         `;
 
-        document.querySelector('.post-section').appendChild(post);
 
-        textarea.value = '';
+        posts.appendChild(post);
+
+        textarea.value = "";
+
     }
+
 </script>
+```
 
 </body>
 
